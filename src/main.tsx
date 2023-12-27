@@ -16,7 +16,7 @@ if (rootElement instanceof Element || rootElement instanceof DocumentFragment) {
   root.render(
     <React.StrictMode>
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="IG-works">
           <App />
         </BrowserRouter>
       </Provider>
