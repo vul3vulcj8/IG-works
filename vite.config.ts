@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+
 const jsonServerPort = Number(process.env.JSON_SERVER_PORT) || 3004;
 
 export default defineConfig({
