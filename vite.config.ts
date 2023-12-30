@@ -5,14 +5,14 @@ export default defineConfig({
   plugins: [react()],
 
   base: "/IG-works/",
-
+  
   server: {
     port: jsonServerPort,
     proxy: {
-      "/api": {
+      "/home": {
         target: "https://restful-api-vercel-eta.vercel.app/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/home/, ""),
       },
       "/following": {
         target: "https://restful-api-vercel-eta.vercel.app/",
@@ -25,5 +25,5 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/notFound/, ""),
       },
     },
-  },
+   },
 });
