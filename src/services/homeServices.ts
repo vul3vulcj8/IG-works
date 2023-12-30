@@ -21,7 +21,7 @@ type IGStory = {
 export const homeApi = createApi({
   reducerPath: "homeApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000/",
+    baseUrl: "https://restful-api-vercel-eta.vercel.app/",
   }),
   endpoints: (builder) => ({
     getIGPosts: builder.query<IGPost[], number | "all">({
