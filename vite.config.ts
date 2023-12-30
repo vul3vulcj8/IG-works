@@ -1,28 +1,28 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
-const jsonServerPort = Number(process.env.JSON_SERVER_PORT) || 3004;
-
+const jsonServerPort = Number(process.env.VITE_VERCEL_ENV) || 3001;
 export default defineConfig({
   plugins: [react()],
+
   base: "/IG-works/",
+
   server: {
     port: jsonServerPort,
     proxy: {
-      "/home": {
-        target: `http://localhost:${jsonServerPort}/`,
+      "/api": {
+        target: "https://restful-api-vercel-eta.vercel.app/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/home/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
       "/following": {
-        target: `http://localhost:${jsonServerPort}/`,
+        target: "https://restful-api-vercel-eta.vercel.app/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/following/, "/following/IG-works"),
+        rewrite: (path) => path.replace(/^\/following/, ""),
       },
       "/notFound": {
-        target: `http://localhost:${jsonServerPort}/`,
+        target: "https://restful-api-vercel-eta.vercel.app/",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/notFound/, "/notFound/IG-works"),
+        rewrite: (path) => path.replace(/^\/notFound/, ""),
       },
     },
   },

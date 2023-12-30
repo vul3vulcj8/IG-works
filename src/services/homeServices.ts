@@ -20,7 +20,9 @@ type IGStory = {
 
 export const homeApi = createApi({
   reducerPath: "homeApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3004/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "http://localhost:3000/",
+  }),
   endpoints: (builder) => ({
     getIGPosts: builder.query<IGPost[], number | "all">({
       query: (id) => {
